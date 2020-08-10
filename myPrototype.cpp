@@ -1,45 +1,74 @@
-#include<iostream>
+#include <iostream>
 
 using namespace std;
+int main()
+{
+    /*Loops in C++:
+    There are three types of loops in C++:
+        1. For loop
+        2. While Loop
+        3. do-While Loop
+    */
 
-int main(){
-    // cout<<"This is tutorial 9";
-    int age;
-    cout<< "Tell me your age"<<endl;
-    cin>>age;
+    /*For loop in C++*/
+    // int i=1;
+    // cout<<i;
+    // i++;
 
-    // 1. Selection control structure: If else-if else ladder
-    // if((age<18) && (age>0)){
-    //     cout<<"You can not come to my party"<<endl;
+    // Syntax for for loop
+    // for(initialization; condition; updation)
+    // {
+    //     loop body(C++ code);
     // }
-    // else if(age==18){
-    //     cout<<"You are a kid and you will get a kid pass to the party"<<endl;
-    // }
-    // else if(age<1){
-    //     cout<<"You are not yet born"<<endl;
-    // }
-    // else{
-    //     cout<<"You can come to the party"<<endl;
+
+    // for (int i = 1; i <= 40; i++)
+    // {
+    //     /* code */
+    //     cout<<i<<endl;
     // }
 
-    // 2. Selection control structure: Switch Case statements
-    switch (age)
-    {
-    case 18: 
-        cout<<"You are 18"<<endl;
-        break;
-    case 22: 
-        cout<<"You are 22"<<endl;
-        break;
-    case 2: 
-        cout<<"You are 2"<<endl;
-        break;
+    // Example of infinite for loop
+    // for (int i = 1; 34 <= 40; i++)
+    // {
+    //     /* code */
+    //     cout<<i<<endl;
+    // }
 
-    default:
-    cout<<"No special cases"<<endl;
-        break;
-    }
+    /*While loop in C++*/
+    // Syntax:
+    // while(condition)
+    // {
+    //     C++ statements;
+    // }
 
-    cout<<"Done with switch case";
+    //  Printing 1 to 40 using while loop
+    // int i=1;
+    // while(i<=40){
+    //     cout<<i<<endl;
+    //     i++;
+    // }
+
+    // Example of infinite while loop
+    // int i = 1;
+    // while (true)
+    // {
+    //     cout << i << endl;
+    //     i++;
+    // }
+
+    /* do While loop in C++*/
+        // Syntax:
+        // do
+        // {
+        //     C++ statements;
+        // }while(condition);
+        
+    //  Printing 1 to 40 using while loop
+    // int i=1;
+    // do{
+    //     cout<<i<<endl;
+    //     i++;
+    // }while(false);
+
     return 0;
 }
