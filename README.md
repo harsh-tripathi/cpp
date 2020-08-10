@@ -1,2 +1,2 @@
-# C-_Codes
-C++ codes from beginner to advanced
+# C++Codes
+C++ Codes from Beginner to Advanced
