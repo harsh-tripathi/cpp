@@ -1,43 +1,32 @@
 #include<iostream>
 using namespace std;
 
-typedef struct employee
-{
-    /* data */
-    int eId; //4
-    char favChar; //1
-    float salary; //4
-} ep;
-
-union money
-{
-    /* data */
-    int rice; //4
-    char car; //1
-    float pounds; //4
-};
-
+// Function prototype
+// type function-name (arguments);
+// int sum(int a, int b); //--> Acceptable
+// int sum(int a, b); //--> Not Acceptable 
+int sum(int, int); //--> Acceptable 
+// void g(void); //--> Acceptable 
+void g(); //--> Acceptable 
 
 int main(){
-    enum Meal{ breakfast, lunch, dinner};
-    Meal m1 = lunch;
-    cout<<(m1==2);
-    // cout<<breakfast;
-    // cout<<lunch;
-    // cout<<dinner; 
-    // union money m1;
-    // m1.rice = 34;
-    // m1.car = 'c';
-    // cout<<m1.car;
-
-    // ep harry;
-    // struct employee shubham;
-    // struct employee rohanDas;
-    // harry.eId = 1;
-    // harry.favChar = 'c';
-    // harry.salary = 120000000;
-    // cout<<"The value is "<<harry.eId<<endl; 
-    // cout<<"The value is "<<harry.favChar<<endl; 
-    // cout<<"The value is "<<harry.salary<<endl; 
+    int num1, num2;
+    cout<<"Enter first number"<<endl;
+    cin>>num1;
+    cout<<"Enter second number"<<endl;
+    cin>>num2;
+    // num1 and num2 are actual parameters
+    cout<<"The sum is "<<sum(num1, num2);
+    g();
     return 0;
+}
+
+int sum(int a, int b){
+    // Formal Parameters a and b will be taking values from actual parameters num1 and num2.
+    int c = a+b;
+    return c;
+}
+
+void g(){
+    cout<<"\nHello, Good Morning";
 }
