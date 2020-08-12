@@ -1,41 +1,36 @@
 #include<iostream>
 using namespace std;
 
-int fib(int n){
-    if(n<2){
-        return 1;
-    }
-    return fib(n-2) + fib(n-1);
+int sum(float a, int b){
+    cout<<"Using function with 2 arguments"<<endl;
+    return a+b;
 }
 
-// fib(5)
-// fib(4) + fib(3)
-// fib(2) + fib(3) + fib(2) + fib(3)
-
-int factorial(int n){
-    if (n<=1){
-        return 1;
-    }
-    return n * factorial(n-1);
+int sum(int a, int b, int c){
+    cout<<"Using function with 3 arguments"<<endl;
+    return a+b+c;
 }
 
-// Step by step calculation of factorial(4)
-// factorial(4) = 4 * factorial(3); 
-// factorial(4) = 4 * 3 * factorial(2);
-// factorial(4) = 4 * 3 * 2 * factorial(1);
-// factorial(4) = 4 * 3 * 2 * 1;
-// factorial(4) = 24;
+// Calculate the volume of a cylinder
+int volume(double r, int h){
+    return(3.14 * r *r *h);
+}
+
+// Calculate the volume of a cube
+int volume(int a){
+    return (a * a * a);
+}
+
+// Rectangular box
+int volume (int l, int b, int h){
+    return (l*b*h);
+}
 
 int main(){
-    // Factorial of a number:
-    // 6! = 6*5*4*3*2*1 = 720
-    // 0! = 1 by definition
-    // 1! = 1 by definition
-    // n! = n * (n-1)!
-    int a;
-    cout<<"Enter a number"<<endl;
-    cin>>a;
-    // cout<<"The factorial of "<<a<< " is "<<factorial(a)<<endl;
-    cout<<"The term in fibonacci sequence at position "<<a<< " is "<<fib(a)<<endl;
+    cout<<"The sum of 3 and 6 is "<<sum(3,6)<<endl;
+    cout<<"The sum of 3, 7 and 6 is "<<sum(3, 7, 6)<<endl;
+    cout<<"The volume of cuboid of 3, 7 and 6 is "<<volume(3, 7, 6)<<endl;
+    cout<<"The volume of cylinder of radius 3 and height 6 is "<<volume(3, 6)<<endl;
+    cout<<"The volume of cube of side 3 is "<<volume(3)<<endl;
     return 0;
 }
