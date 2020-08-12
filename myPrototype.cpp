@@ -1,27 +1,41 @@
 #include<iostream>
 using namespace std;
 
-inline int product(int a, int b){
-    // Not recommended to use below lines with inline functions
-    // static int c=0; // This executes only once
-    // c = c + 1; // Next time this function is run, the value of c will be retained
-    return a*b;
+int fib(int n){
+    if(n<2){
+        return 1;
+    }
+    return fib(n-2) + fib(n-1);
 }
 
-float moneyReceived(int currentMoney, float factor=1.04){
-    return currentMoney * factor;
+// fib(5)
+// fib(4) + fib(3)
+// fib(2) + fib(3) + fib(2) + fib(3)
+
+int factorial(int n){
+    if (n<=1){
+        return 1;
+    }
+    return n * factorial(n-1);
 }
 
-// int strlen(const char *p){
+// Step by step calculation of factorial(4)
+// factorial(4) = 4 * factorial(3); 
+// factorial(4) = 4 * 3 * factorial(2);
+// factorial(4) = 4 * 3 * 2 * factorial(1);
+// factorial(4) = 4 * 3 * 2 * 1;
+// factorial(4) = 24;
 
-// }
 int main(){
-    int a, b;
-    // cout<<"Enter the value of a and b"<<endl;
-    // cin>>a>>b;
-    // cout<<"The product of a and b is "<<product(a,b)<<endl;
-    int money = 100000;
-    cout<<"If you have "<<money<<" Rs in your bank account, you will recive "<<moneyReceived(money)<< "Rs after 1 year"<<endl;
-    cout<<"For VIP: If you have "<<money<<" Rs in your bank account, you will recive "<<moneyReceived(money, 1.1)<< " Rs after 1 year";
+    // Factorial of a number:
+    // 6! = 6*5*4*3*2*1 = 720
+    // 0! = 1 by definition
+    // 1! = 1 by definition
+    // n! = n * (n-1)!
+    int a;
+    cout<<"Enter a number"<<endl;
+    cin>>a;
+    // cout<<"The factorial of "<<a<< " is "<<factorial(a)<<endl;
+    cout<<"The term in fibonacci sequence at position "<<a<< " is "<<fib(a)<<endl;
     return 0;
 }
