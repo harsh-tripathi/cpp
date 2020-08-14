@@ -1,38 +1,57 @@
 #include<iostream>
 using namespace std;
+class c2;
 
-class Y;
-
-class X{
-    int data;
+class c1{
+    int val1;
+    friend void exchange(c1 & , c2 &);
     public:
-        void setValue(int value){
-            data = value;
+        void indata(int a){
+            val1 = a;
         }
-    friend void add(X, Y);    
+
+        void display(void){
+            cout<< val1 <<endl;
+        }
 };
 
-class Y{
-    int num;
+class c2{
+    int val2;
+    friend void exchange(c1 &, c2 &);
     public:
-        void setValue(int value){
-            num = value;
+        void indata(int a){
+            val2 = a;
         }
-    friend void add(X, Y);    
 
+        void display(void){
+            cout<< val2 <<endl;
+        }
 };
+/*
+Trick to swap 2 numbers a and b:
+temp = a;
+a = b;
+b = temp;
 
-void add(X o1, Y o2){
-    cout<<"Summing data of X and Y objects gives me "<< o1.data + o2.num;
+*/
+void exchange(c1 &x, c2 &y){
+    int tmp = x.val1;
+    x.val1 = y.val2;
+    y.val2 = tmp;
 }
 
 int main(){
-    X a1;
-    a1.setValue(3);
+    c1 oc1;
+    c2 oc2;
 
-    Y b1;
-    b1.setValue(15);
+    oc1.indata(34);
+    oc2.indata(67);
+    exchange(oc1, oc2);
 
-    add(a1, b1);
+    cout<<"The value of c1 after exchanging becomes: ";
+    oc1.display();
+    cout<<"The value of c2 after exchanging becomes: ";
+    oc2.display();
+    
     return 0;
 }
