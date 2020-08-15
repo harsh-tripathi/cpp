@@ -1,28 +1,65 @@
 #include<iostream>
 using namespace std;
 
-class Simple{
-    int data1;
-    int data2;
-    int data3;
+
+class BankDeposit{
+    int principal;
+    int years;
+    float interestRate;
+    float returnValue;
 
     public:
-        Simple(int a, int b=9, int c=8){
-            data1 = a;
-            data2 = b;
-            data3 = c;
-        }
-
-        void printData();
-
+        BankDeposit(){}
+        BankDeposit(int p, int y, float r); // r can be a value like 0.04
+        BankDeposit(int p, int y, int r); // r can be a value like 14
+        void show();
 };
 
-void Simple :: printData(){
-    cout<<"The value of data1, data2 and data3 is "<<data1<<", "<< data2<<" and "<< data3<<endl;
+BankDeposit :: BankDeposit(int p, int y, float r)
+{
+    principal = p;
+    years = y;
+    interestRate = r;
+    returnValue = principal;
+    for (int i = 0; i < y; i++)
+    {
+        returnValue = returnValue * (1+interestRate);
+    }
+}
+
+BankDeposit :: BankDeposit(int p, int y, int r)
+{
+    principal = p;
+    years = y;
+    interestRate = float(r)/100;
+    returnValue = principal;
+    for (int i = 0; i < y; i++)
+    {
+        returnValue = returnValue * (1+interestRate);
+    }
+}
+
+void BankDeposit :: show(){
+    cout<<endl<<"Principal amount was "<<principal
+        << ". Return value after "<<years
+        << " years is "<<returnValue<<endl;
 }
 
 int main(){
-    Simple s(12, 13);
-    s.printData();
+    BankDeposit bd1, bd2, bd3;
+    int p, y;
+    float r;
+    int R;
+    
+    
+    cout<<"Enter the value of p y and r"<<endl;
+    cin>>p>>y>>r;
+    bd1 = BankDeposit(p, y, r);
+    bd1.show();
+
+    cout<<"Enter the value of p y and R"<<endl;
+    cin>>p>>y>>R;
+    bd2 = BankDeposit(p, y, R);
+    bd2.show();
     return 0;
 }
