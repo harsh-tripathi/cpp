@@ -1,30 +1,43 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-class Point{
-    int x, y;
-    public:
-        Point(int a, int b){
-            x = a;
-            y = b;
-        }
+class Complex
+{
+    int a, b;
 
-        void displayPoint(){
-            cout<<"The point is ("<<x<<", "<<y<<")"<<endl;
-        }
+public:
+    Complex(){
+        a = 0;
+        b =0;
+    }
 
+    Complex(int x, int y)
+    {
+        a = x;
+        b = y;
+    }
+
+    Complex(int x){
+        a = x;
+        b = 0;
+    }
+
+  
+
+    void printNumber()
+    {
+        cout << "Your number is " << a << " + " << b << "i" << endl;
+    }
 };
-// Create a function (Hint: Make it a friend function) which takes 2 point objects and computes the distance between those 2 points
+int main()
+{
+    Complex c1(4, 6);
+    c1.printNumber();
 
-// Use these examples to check your code:
-// Distance between (1, 1) and (1, 1) is 0
-// Distance between (0, 1) and (0, 6) is 5
-// Distance between (1, 0) and (70, 0) is 69
-int main(){
-    Point p(1, 1);
-    p.displayPoint();
+    Complex c2(5);
+    c2.printNumber();
 
-    Point q(4, 6);
-    q.displayPoint();
+    Complex c3;
+    c3.printNumber();
     return 0;
 }
