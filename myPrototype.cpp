@@ -1,32 +1,56 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-// Destructor never takes an argument nor does it return any value 
-int count=0;
-
-class num{
-    public:
-        num(){
-            count++;
-            cout<<"This is the time when constructor is called for object number"<<count<<endl;
-        }
-
-        ~num(){
-            cout<<"This is the time when my destructor is called for object number"<<count<<endl;
-            count--;
-        }
+// Base Class
+class Employee
+{
+public:
+    int id;
+    float salary;
+    Employee(int inpId)
+    {
+        id = inpId;
+        salary = 34.0;
+    }
+    Employee() {}
 };
 
-int main(){
-    cout<<"We are inside our main function"<<endl;
-    cout<<"Creating first object n1"<<endl;
-    num n1;
+// Derived Class syntax
+/*
+class {{derived-class-name}} : {{visibility-mode}} {{base-class-name}}
+{
+    class members/methods/etc...
+}
+Note:
+1. Default visibility mode is private
+2. Public Visibility Mode: Public members of the base class becomes Public members of the derived class
+3. Private Visibility Mode: Public members of the base class becomes Private members of the derived class
+4. Private members are never inherited
+*/
+
+// Creating a Programmer class derived from Employee Base class
+class Programmer : public Employee
+{
+public:
+    int languageCode;
+    Programmer(int inpId)
     {
-        cout<<"Entering this block"<<endl;
-        cout<<"Creating two more objects"<<endl;
-        num n2, n3;
-        cout<<"Exiting this block"<<endl;
+        id = inpId;
+        languageCode = 9;
     }
-    cout<<"Back to main"<<endl;
+    void getData(){
+        cout<<id<<endl;
+    }
+};
+
+int main()
+{
+    Employee harry(1), rohan(2);
+    cout << harry.salary << endl;
+    cout << rohan.salary << endl;
+    Programmer skillF(10);
+    cout << skillF.languageCode<<endl;
+    cout << skillF.id<<endl;
+    skillF.getData();
     return 0;
 }
