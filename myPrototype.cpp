@@ -1,56 +1,59 @@
 #include <iostream>
 using namespace std;
 
-// Base Class
-class Employee
+class Base
 {
+    int data1; // private by default and is not inheritable
 public:
-    int id;
-    float salary;
-    Employee(int inpId)
-    {
-        id = inpId;
-        salary = 34.0;
-    }
-    Employee() {}
+    int data2;
+    void setData();
+    int getData1();
+    int getData2();
 };
 
-// Derived Class syntax
-/*
-class {{derived-class-name}} : {{visibility-mode}} {{base-class-name}}
+void Base ::setData(void)
 {
-    class members/methods/etc...
+    data1 = 10;
+    data2 = 20;
 }
-Note:
-1. Default visibility mode is private
-2. Public Visibility Mode: Public members of the base class becomes Public members of the derived class
-3. Private Visibility Mode: Public members of the base class becomes Private members of the derived class
-4. Private members are never inherited
-*/
 
-// Creating a Programmer class derived from Employee Base class
-class Programmer : public Employee
+int Base::getData1()
 {
+    return data1;
+}
+
+int Base::getData2()
+{
+    return data2;
+}
+
+class Derived : public Base
+{ // Class is being derived publically
+    int data3;
+
 public:
-    int languageCode;
-    Programmer(int inpId)
-    {
-        id = inpId;
-        languageCode = 9;
-    }
-    void getData(){
-        cout<<id<<endl;
-    }
+    void process();
+    void display();
 };
+
+void Derived ::process()
+{
+    data3 = data2 * getData1();
+}
+
+void Derived ::display()
+{
+    cout << "Value of data 1 is " << getData1() << endl;
+    cout << "Value of data 2 is " << data2 << endl;
+    cout << "Value of data 3 is " << data3 << endl;
+}
 
 int main()
 {
-    Employee harry(1), rohan(2);
-    cout << harry.salary << endl;
-    cout << rohan.salary << endl;
-    Programmer skillF(10);
-    cout << skillF.languageCode<<endl;
-    cout << skillF.id<<endl;
-    skillF.getData();
+    Derived der;
+    der.setData();
+    der.process();
+    der.display();
+
     return 0;
 }
