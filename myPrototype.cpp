@@ -1,73 +1,93 @@
 #include <iostream>
+#include <math.h>
+#include <cmath>
+#include <stdlib.h>
+
+//Calculator using C++
+
 using namespace std;
 
-// Syntax for inheriting in multiple inheritance
-// class DerivedC: visibility-mode base1, visibility-mode base2
-// {
-//      Class body of class "DerivedC"
-// };
+const double pi = 3.14259;
 
-class Base1{
-protected:
-    int base1int;
-
-public:
-    void set_base1int(int a)
-    {
-        base1int = a;
-    }
-};
-
-class Base2{
-protected:
-    int base2int;
-
-public:
-    void set_base2int(int a)
-    {
-        base2int = a;
-    }
-};
-
-class Base3{
-protected:
-    int base3int;
-
-public:
-    void set_base3int(int a)
-    {
-        base3int = a;
-    }
-};
-
-class Derived : public Base1, public Base2, public Base3
+class simpleCalc
 {
-    public: 
-        void show(){
-            cout << "The value of Base1 is " << base1int<<endl;
-            cout << "The value of Base2 is " << base2int<<endl;
-            cout << "The value of Base3 is " << base3int<<endl;
-            cout << "The sum of these values is " << base1int + base2int + base3int << endl;
-        }
-};
-/*
-The inherited derived class will look something like this:
-Data members:
-    base1int --> protected
-    base2int --> protected
+protected:
+    float x, y, add, multiple, substract, divide;
 
-Member functions:
-    set_base1int() --> public
-    set_base2int() --> public
-    set_show() --> public
-*/
+public:
+    void getNumber(float, float);
+    void performAction(void);
+    void displayResult(void);
+};
+
+void simpleCalc ::getNumber(float a, float b)
+{
+    x = a;
+    y = b;
+}
+
+void simpleCalc ::performAction()
+{
+    add = x + y;
+    substract = x - y;
+    multiple = x * y;
+    divide = x / y;
+}
+
+void simpleCalc ::displayResult()
+{
+    cout << "The Addition of given numbers is : " << add << endl;
+    cout << "The Substraction of given numbers is : " << substract << endl;
+    cout << "The Multiplication of given numbers is : " << multiple << endl;
+    cout << "The Division of given numbers is : " << divide << endl;
+}
+
+class scientificCalc
+{
+protected:
+    double a, b, sine, cosine, tan, log;
+
+public:
+    void getInput(float, float);
+    void performScientificAction(void);
+    void displayOutput(void);
+};
+
+void scientificCalc ::getInput(float q, float r)
+{
+    a = q;
+    b = r;
+}
+
+void scientificCalc ::performScientificAction()
+{
+    sine = sin(a);
+    cosine = cos(a);
+    tan = tanh(a);
+    log = log10(b);
+}
+
+void scientificCalc ::displayOutput()
+{
+    cout << "The Sine of given number is : " << sine << endl;
+    cout << "The cosine of given number is : " << cosine << endl;
+    cout << "The tan of given number is : " << tan << endl;
+    cout << "The log with base 10 of given number is : " << log << endl;
+}
+
+class hybridCalc : public simpleCalc, public scientificCalc
+{
+};
+
 int main()
 {
-    Derived harry;
-    harry.set_base1int(25);
-    harry.set_base2int(5);
-    harry.set_base3int(15);
-    harry.show();
-    
+    hybridCalc h1;
+    h1.getNumber(5.0, 2.0);
+    h1.performAction();
+    h1.displayResult();
+
+    h1.getInput(pi / 4, 100);
+    h1.performScientificAction();
+    h1.displayOutput();
     return 0;
 }
