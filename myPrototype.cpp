@@ -1,62 +1,74 @@
 #include<iostream>
 using namespace std;
+/*
+Inheritance:
+student -->test [Done]
+student-->sports [Done]
+test --> result [Done]
+sports --> result [Done]
+*/
 
-class Base1{
+class Student{
+    protected:
+        int roll_no;
     public:
-        void greet(){
-            cout<<"How are you?"<<endl;
+        void set_number(int a){
+            roll_no = a;
+        }
+        void print_number(void){
+            cout<<"Your roll no is "<< roll_no<<endl;
         }
 };
 
-class Base2{
+class Test : public Student{
+    protected:
+        float maths, physics;
+        public:
+            void set_marks(float m1, float m2){
+                maths = m1;
+                physics = m2;
+            }
+
+            void print_marks(void){
+                cout << "You result is here: "<<endl
+                     << "Maths: "<< maths<<endl
+                     << "Physics: "<< physics<<endl;
+            }
+};
+
+class Sports: public Student{
+    protected:
+        float score;
     public:
-        void greet()
-        {
-            cout << "Kaise ho?" << endl;
+        void set_score(float sc){
+            score = sc;
+        }
+
+        void print_score(void){
+            cout<<"Your PT score is "<<score<<endl;
+        }
+
+};
+
+class Result : public Test, public Sports{
+    private:
+        float total;
+    public:
+        void display(void){
+            total = maths + physics + score;
+            print_number();
+            print_marks();
+            print_score();
+            cout<< "Your total score is: "<<total<<endl;
         }
 };
 
-
-class Derived : public Base1, public Base2{
-   int a;
-   public:
-    void greet(){
-        Base2 :: greet();
-    }
-};
-
-class B{
-    public:
-        void say(){
-            cout<<"Hello world"<<endl;
-        }
-};
-
-class D: public B{
-    int a;
-    // D's new say() method will override base class's say() method
-    public:
-        void say()
-        {
-            cout << "Hello my beautiful people" << endl;
-        }
-};
 
 int main(){
-    // Ambibuity 1
-    // Base1 base1obj;
-    // Base2 base2obj;
-    // base1obj.greet();
-    // base2obj.greet();
-    // Derived d;
-    // d.greet();
-
-    // Ambibuity 2
-    B b;
-    b.say();
-
-    D d;
-    d.say();
-
+    Result harry;
+    harry.set_number(4200);
+    harry.set_marks(78.9, 99.5);
+    harry.set_score(9);
+    harry.display();
     return 0;
 }
