@@ -1,44 +1,28 @@
-#include <iostream>
+#include<iostream>
 using namespace std;
-/*
-Syntax for initialization list in constructor:
-constructor (argument-list) : initilization-section
-{
-    assignment + other code;
-}
 
-class Test{
-    int a;
-    int b;
-    public:
-        Test(int i, int j) : a(i), b(j){constructor-body}
-};
+int main(){
+    // Basic Example
+    int a = 4;
+    int* ptr = &a;
+    *ptr = 999;
+    cout<<"The value of a is "<<*(ptr)<<endl;
 
-*/
-class Test
-{
-    int a;
-    int b;
+    // new operator
+    // int *p = new int(40);
+    float *p = new float(40.78);
+    cout << "The value at address p is " << *(p) << endl;
 
-public:
-    // Test(int i, int j) : a(i), b(j)
-    // Test(int i, int j) : a(i), b(i+j)
-    // Test(int i, int j) : a(i), b(2 * j)
-    // Test(int i, int j) : a(i), b(a + j)
-    // Test(int i, int j) : b(j), a(i+b) -->RED Flag this will create problems because a will be initialized first
-    Test(int i, int j)
-    {
-        a = i;
-        b = j;
-        cout << "Constructor executed"<<endl;
-        cout << "Value of a is "<<a<<endl;
-        cout << "Value of b is "<<b<<endl;
-    }
-};
+    int *arr = new int[3];
+    arr[0] = 10;
+    *(arr+1) = 20;
+    arr[2] = 30;
+    // delete[] arr;
+    cout << "The value of arr[0] is " << arr[0] << endl;
+    cout << "The value of arr[1] is " << arr[1] << endl;
+    cout << "The value of arr[2] is " << arr[2] << endl;
 
-int main()
-{
-    Test t(4, 6);
-
+    // delete operator
+    
     return 0;
 }
