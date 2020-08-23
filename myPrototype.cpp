@@ -1,23 +1,21 @@
 #include<iostream>
 using namespace std;
-class A{
-    int a;
-    public:
-        // A & setData(int a){
-        void setData(int a){
-            this->a = a;
-            // return *this;
-        }
-
-        void getData(){
-            cout<<"The value of a is "<<a<<endl;
-        }
-};
 
 int main(){
-    // this is a keyword which is a pointer which points to the object which invokes the member function
-    A a;
-    a.setData(4);
-    a.getData();
+    // Polymorphism
+    //  - one name and multiple forms
+    //  - eg. Function overloading, operator overloading
+    //  - eg. Virtual Functions
+    /*
+    Polymorphism in C++ can be of two types:
+    1. Compile time polymorphism
+       Compile time polymorphism in C++ is acheived using:
+        1.1 - Function overloading
+        1.2 - Operator Overloading
+    2. Run time polymorphism
+       Run time polymorphism in C++ is acheived using:
+        2.1 - Virtual functions
+
+        */
     return 0;
 }
