@@ -1,34 +1,54 @@
 #include<iostream>
 using namespace std;
 
-class Complex{
-    int real, imaginary;
+class ShopItem
+{
+    int id;
+    float price;
     public:
-        void getData(){
-            cout<<"The real part is "<< real<<endl;
-            cout<<"The imaginary part is "<< imaginary<<endl;
+        void setData(int a, float b){
+            id = a;
+            price = b;
         }
-
-        void setData(int a, int b){
-            real = a;
-            imaginary = b;
+        void getData(void){
+            cout<<"Code of this item is "<< id<<endl;
+            cout<<"Price of this item is "<<price<<endl;
         }
-
 };
+        // 1 2 3
+        //     ^
+        //     |
+        //     |
+        //     ptr
+        // ptrTemp
 int main(){
-    // Complex c1;
-    // Complex *ptr = &c1;
-    Complex *ptr = new Complex;
-    // (*ptr).setData(1, 54); is exactly same as
-    ptr->setData(1, 54);
+    int size = 3;
+    // int *ptr = &size;
+    // int *ptr = new int [34];
 
-    // (*ptr).getData(); is as good as 
-    ptr->getData(); 
+    // 1. general store item
+    // 2. veggies item
+    // 3. hardware item
+    ShopItem *ptr = new ShopItem [size];
+    ShopItem *ptrTemp = ptr;
+    int p, i;
+    float q;
+    for (i = 0; i < size; i++)
+    {
+        cout<<"Enter Id and price of item "<< i+1<<endl;
+        cin>>p>>q;
+        // (*ptr).setData(p, q);
+        ptr->setData(p, q);
+        ptr++; 
+    }
 
-
-    // Array of Objects
-    Complex *ptr1 = new Complex[4]; 
-    ptr1->setData(1, 4); 
-    ptr1->getData();
+    for (i = 0; i < size; i++)
+    {
+        cout<<"Item number: "<<i+1<<endl;
+        ptrTemp->getData();
+        ptrTemp++;
+    }
+    
+    
     return 0;
 }
