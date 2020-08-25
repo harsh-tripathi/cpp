@@ -1,40 +1,40 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-class BaseClass{
-    public:
-        int var_base;
-        void display(){
-            cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
-        }
+//Base class's pointer can be used by derieved class pointer
+//But if any inherited function is called through pointer it will call base class pointer only!
+//run-time polymorphism
+class BaseClass
+{
+public:
+    int varbase;
+    void display()
+    {
+        cout << "This is a Base class variable " << varbase << endl;
+    }
 };
 
-class DerivedClass : public BaseClass{
-    public:
-            int var_derived;
-            void display(){
-                cout<<"Dispalying Base class variable var_base "<<var_base<<endl;
-                cout<<"Dispalying Derived class variable var_derived "<<var_derived<<endl;
-            }
+class DerievedClass : public BaseClass
+{
+public:
+    int varderieved;
+    void display()
+    {
+        cout << "This is a Base class variable " << varderieved << endl;
+    }
 };
-
-int main(){
-    BaseClass * base_class_pointer;
+int main()
+{
+    BaseClass * base_pointer;
     BaseClass obj_base;
-    DerivedClass obj_derived;
-    base_class_pointer = &obj_derived; // Pointing base class pointer to derived class
+    DerievedClass obj_derieved;
+    base_pointer = &obj_derieved; //Base class pointer pointing to derieved class pointer
+    base_pointer->varbase = 55;
+    // base_pointer->varderieved = 5; // it will through error 
+    base_pointer->display(); // late binding - it will run base class function
 
-    base_class_pointer->var_base = 34;
-    // base_class_pointer->var_derived= 134; // Will throw an error
-    base_class_pointer->display();
-
-    base_class_pointer->var_base = 3400; 
-    base_class_pointer->display();
-
-    DerivedClass * derived_class_pointer;
-    derived_class_pointer = &obj_derived;
-    derived_class_pointer->var_base = 9448;
-    derived_class_pointer->var_derived = 98;
-    derived_class_pointer->display();
+    DerievedClass * derieved = &obj_derieved;
+    derieved->varderieved = 111;
+    derieved->display();
 
     return 0;
 }
