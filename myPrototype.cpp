@@ -1,8 +1,10 @@
 #include <iostream>
+
 using namespace std;
 //Base class's pointer can be used by derieved class pointer
 //But if any inherited function is called through pointer it will call base class pointer only!
 //run-time polymorphism
+
 class BaseClass
 {
 public:
@@ -22,6 +24,7 @@ public:
         cout << "This is a Base class variable " << varderieved << endl;
     }
 };
+
 int main()
 {
     BaseClass * base_pointer;
