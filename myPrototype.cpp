@@ -1,31 +1,35 @@
 #include <iostream>
 #include <string>
+//Abstract Class and Pure Virtual Function.
+//Pure Virtual Function. - An inherited class should override it!
+//Abstract Class is not used to make class. & it has atleast one virtual function.
+//Code may not work.
 
 using namespace std;
 
-class Ayush
+class Harsh
 {
 protected:
     string title;
     float num;
 
 public:
-    Ayush(String s, float r)
+    Harsh(String s, float r)
     {
         strcpy(title, s)
         {
             num = r;
         }
     }
-    virtual void display() {}
+    virtual void display() = 0; //Do Nothing function --> Pure virtual function
 };
 
-class AyushVideo : public Ayush
+class HarshVideo : public Harsh
 {
     int videolength;
 
 public:
-    AyushVideo(String s, float r, int vl) : CWH(s, r)
+    HarshVideo(String s, float r, int vl) : CWH(s, r)
     {
         videolength = vl;
     }
@@ -36,12 +40,12 @@ public:
         cout << "This is video length " << vl << endl;
     }
 };
-class AyushText : public Ayush
+class HarshText : public Harsh
 {
     int text;
 
 public:
-    AyushText(String s, float r, int wc) : CWH(s, r)
+    HarshText(String s, float r, int wc) : CWH(s, r)
     {
         text = wc;
     }
@@ -63,7 +67,7 @@ int main()
     vlen = 44;
     rating = 3;
 
-    AyushVideo Video(title, rating, vlen);
+    HarshVideo Video(title, rating, vlen);
     Video.display();
 }
 //Rules for definind Virtual Function
