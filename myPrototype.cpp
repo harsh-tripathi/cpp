@@ -55,6 +55,7 @@ public:
         cout << "This is a title " << title << endl;
         cout << "This is a Rating " << num << endl;
         cout << "This is text length " << wc << endl;
+        cout << "End !!";
     }
 };
 
